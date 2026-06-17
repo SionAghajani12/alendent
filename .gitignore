@@ -1,0 +1,5 @@
+alendent.db
+server.log
+node_modules/
+.env
+*.env

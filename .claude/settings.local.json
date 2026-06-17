@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"open:\"o\" close:\"c\" diff:\"o-c}' styles.css)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"diff:\"o-c}' styles.css)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"diff:\"o-c\" \\(should be 0\\)\"}' styles.css)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print o-c}' styles.css)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{printf o-c\" \"}' ui.jsx)",
+      "Bash(awk '{o+=gsub\\(/\\\\\\(/,\"\\(\"\\); c+=gsub\\(/\\\\\\)/,\"\\)\"\\)} END{print o-c}' ui.jsx)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"CSS braces diff:\", o-c}' styles.css)",
+      "Bash(npm -v)",
+      "Bash(echo \"npm:  $\\(npm -v 2>/dev/null || echo 'NOT installed'\\)\")",
+      "Bash(node -e \"const {DatabaseSync}=require\\('node:sqlite'\\); const db=new DatabaseSync\\(':memory:'\\); db.exec\\('CREATE TABLE t\\(x\\)'\\); db.prepare\\('INSERT INTO t VALUES\\(?\\)'\\).run\\(42\\); console.log\\('node:sqlite OK ->', db.prepare\\('SELECT x FROM t'\\).get\\(\\)\\);\")",
+      "Bash(node --experimental-sqlite -e \"const {DatabaseSync}=require\\('node:sqlite'\\); console.log\\('works with --experimental-sqlite flag'\\);\")",
+      "Bash(node server.js)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3000/app.jsx)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3000/styles.css)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3000/api.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" http://localhost:3000/uploads/e9308590cce694e8mpztftw9.png)",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(curl -s -o /dev/null -w \"site: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"api:  %{http_code}\\\\n\" http://localhost:3000/api/products)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{printf \"braces:\"o-c\" \"}' admin.jsx)",
+      "Bash(awk '{o+=gsub\\(/\\\\\\(/,\"\\(\"\\); c+=gsub\\(/\\\\\\)/,\"\\)\"\\)} END{print \"parens:\"o-c}' admin.jsx)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/api/products)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/api/brands)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{printf \"braces:\"o-c\" \"}' home.jsx)",
+      "Bash(awk '{o+=gsub\\(/\\\\\\(/,\"\\(\"\\); c+=gsub\\(/\\\\\\)/,\"\\)\"\\)} END{print \"parens:\"o-c}' home.jsx)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"css braces diff:\", o-c}' styles.css)",
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{printf \"home.jsx braces:\"o-c\" \"}' home.jsx)",
+      "Bash(perl -0pi -e 's/products=\\\\{window\\\\.PRODUCTS\\\\}/products={products}/g' app.jsx)",
+      "Bash(curl -s -o /dev/null -w \"site %{http_code} | \" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"api %{http_code}\\\\n\" http://localhost:3000/api/products)",
+      "Bash(curl -s http://localhost:3000/catalog.jsx)",
+      "Bash(curl -s http://localhost:3000/api/products)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const a=JSON.parse\\(d\\);const m={};a.forEach\\(p=>m[p.cat]=\\(m[p.cat]||0\\)+1\\);console.log\\(m\\)}\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>console.log\\(JSON.parse\\(d\\).length\\)\\)\")",
+      "Bash(curl -s http://localhost:3000/api/brands)"
+    ]
+  }
+}
