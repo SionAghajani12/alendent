@@ -50,7 +50,7 @@ window.Header = function Header({ t, lang, setLang, cartCount, favCount, query, 
       <header className="header">
         <div className="container header-inner">
           <div className="brand" onClick={onLogo}>
-            <img src="assets/alendent-logo.jpeg" alt="Alendent" />
+            <img src="/assets/alendent-logo.jpeg" alt="Alendent" />
             <div className="b-text">
               <span className="b-name">Alendent</span>
               <span className="b-tag">{lang === "am" ? "Ստոմատոլոգիա" : lang === "ru" ? "Стоматология" : "Dental Supply"}</span>
@@ -144,7 +144,7 @@ window.Footer = function Footer({ t, lang }) {
         <div className="footer-grid">
           <div>
             <div className="f-brand">
-              <img src="assets/alendent-logo.jpeg" alt="Alendent" />
+              <img src="/assets/alendent-logo.jpeg" alt="Alendent" />
               <span className="n">Alendent</span>
             </div>
             <p className="f-about">{t("f.about")}</p>

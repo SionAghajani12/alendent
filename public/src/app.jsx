@@ -85,18 +85,6 @@ function App() {
     localStorage.setItem("alendent.fav", JSON.stringify(favorites));
   }, [favorites]);
 
-  // Hash-based admin routing: navigate to #admin in the URL to open admin
-  useEffect(() => {
-    const check = () => {
-      if (window.location.hash === "#admin") {
-        setRoute("admin");
-        window.scrollTo({ top: 0 });
-      }
-    };
-    check();
-    window.addEventListener("hashchange", check);
-    return () => window.removeEventListener("hashchange", check);
-  }, []);
 
   // Translator
   const t = (key) => {
@@ -166,8 +154,8 @@ function App() {
       setActiveNav("contact");
       setRoute("contact");
     } else if (id === "admin") {
-      setActiveNav("admin");
-      setRoute("admin");
+      window.location.href = "/admin";
+      return;
     } else {
       goCatalog();
     }
@@ -229,11 +217,6 @@ function App() {
     screen = <AboutPage t={t} lang={lang}/>;
   } else if (route === "contact") {
     screen = <ContactPage t={t} lang={lang}/>;
-  } else if (route === "admin") {
-    screen = <AdminPage t={t} lang={lang}
-              products={products} onSaveProduct={saveProduct} onDeleteProduct={removeProduct}
-              brands={brands} onSaveBrand={saveBrand} onDeleteBrand={removeBrand}
-              showToast={showToast} onBack={goHome}/>;
   } else if (route === "pdp" && product) {
     screen = <PdpPage t={t} lang={lang} product={product}
               onAdd={addToCart} onOpen={openProduct} onBack={goCatalog}
@@ -246,8 +229,8 @@ function App() {
     screen = <OrderConfirmPage t={t} lang={lang} orderId={orderId} onBack={goHome}/>;
   }
 
-  const showHeader = route !== "confirm" && route !== "admin";
-  const showFooter = route !== "checkout" && route !== "confirm" && route !== "admin";
+  const showHeader = route !== "confirm";
+  const showFooter = route !== "checkout" && route !== "confirm";
 
   return (
     <div className="app">

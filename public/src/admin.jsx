@@ -3,7 +3,7 @@
 window.AdminPage = function AdminPage({
   products, onSaveProduct, onDeleteProduct,
   brands, onSaveBrand, onDeleteBrand,
-  showToast, onBack,
+  showToast, onBack, onLogout,
 }) {
   const [tab, setTab]             = React.useState("products"); // products | brands
   const [search, setSearch]       = React.useState("");
@@ -97,12 +97,19 @@ window.AdminPage = function AdminPage({
       {/* ── Header ── */}
       <div className="admin-hd">
         <div className="admin-hd-brand">
-          <img src="assets/alendent-logo.jpeg" alt="" />
+          <img src="/assets/alendent-logo.jpeg" alt="" />
           <span>Alendent <strong>Admin</strong></span>
         </div>
-        <button className="btn btn-sm" style={{color:"#c8d3df",background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.14)"}} onClick={handleBack}>
-          <Icon name="arrow-left" size={14}/> Back to site
-        </button>
+        <div style={{display:"flex",gap:8}}>
+          <button className="btn btn-sm" style={{color:"#c8d3df",background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,255,255,0.14)"}} onClick={handleBack}>
+            <Icon name="arrow-left" size={14}/> Back to site
+          </button>
+          {onLogout && (
+            <button className="btn btn-sm" style={{color:"#f87171",background:"rgba(239,68,68,0.1)",border:"1px solid rgba(239,68,68,0.25)"}} onClick={onLogout}>
+              <Icon name="x" size={14}/> Logout
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="admin-body">

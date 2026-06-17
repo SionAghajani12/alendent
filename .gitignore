@@ -1,5 +1,16 @@
-alendent.db
-server.log
-node_modules/
+# Environment — never commit real secrets
 .env
-*.env
+
+# Database (contains live product/customer data)
+data/
+alendent.db
+
+# Logs
+server.log
+*.log
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store

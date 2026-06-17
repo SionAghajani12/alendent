@@ -1,10 +1,11 @@
 {
   "name": "alendent",
   "version": "1.0.0",
-  "description": "Alendent dental supply storefront + self-hosted database backend",
+  "description": "Alendent dental supply storefront + self-hosted backend",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
   },
   "engines": {
     "node": ">=22"
