@@ -1,0 +1,21 @@
+# Render Blueprint — deploys Alendent as a Node WEB SERVICE (not a static site).
+# A static site can't run server.js, so /admin, /api, login, and uploads only
+# work as a web service. Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: alendent
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # REQUIRED — the server refuses to start without this. Set it yourself
+      # in the Render dashboard (Environment tab); it is intentionally secret.
+      - key: ADMIN_PASSWORD
+        sync: false
+      # Render generates a strong random value and keeps it stable across deploys.
+      - key: SESSION_SECRET
+        generateValue: true
