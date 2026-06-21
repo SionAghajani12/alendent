@@ -12,7 +12,12 @@ function App() {
   useEffect(() => {
     if (!window.api) return;
     window.api.getProducts()
-      .then(ps => { setProducts(ps); window.PRODUCTS = ps; })
+      .then(ps => {
+        setProducts(ps);
+        window.PRODUCTS = ps;
+        const ids = new Set(ps.map(p => p.id));
+        setCart(prev => prev.filter(c => ids.has(c.id)));
+      })
       .catch(() => { /* keep data.js seed already in window.PRODUCTS */ });
     window.api.getBrands().then(setBrands).catch(() => setBrands([]));
   }, []);
